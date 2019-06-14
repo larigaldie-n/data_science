@@ -36,10 +36,10 @@ Each variable is normalized and bounded within \[-1, 1\].
 
 This results in 66 variables of interest. To summarize how variables are named:
 
-*prefix: t or f (time or frequency domain)
-*base: Type of signal (e.g. Acc for accelerometer, Gyro for gyroscope, see previous subchapter for details)
-*statistic output: -mean() or -std() (respectively for mean or standard deviation)
-*suffix (when applicable): -X, -Y or -Z (one variable for each spatial dimension)
+* prefix: t or f (time or frequency domain)
+* base: Type of signal (e.g. Acc for accelerometer, Gyro for gyroscope, see previous subchapter for details)
+* statistic output: -mean() or -std() (respectively for mean or standard deviation)
+* suffix (when applicable): -X, -Y or -Z (one variable for each spatial dimension)
 
 Example: tBodyAcc-mean()-X signifies the mean of the time domain signal for the body acceleration signal on the X axis.
 
