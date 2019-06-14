@@ -2,13 +2,19 @@
 
 
 Human Activity Recognition Using Smartphones Dataset
+
 Version 1.0
 
 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+
 Smartlab - Non Linear Complex Systems Laboratory
+
 DITEN - Università degli Studi di Genova.
+
 Via Opera Pia 11A, I-16145, Genoa, Italy.
+
 activityrecognition@smartlab.ws
+
 www.smartlab.ws
 
 
@@ -29,7 +35,9 @@ Subsequently, the body linear acceleration and angular velocity were derived in 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 
 These signals were used to estimate variables for each pattern. '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions (when applicable).
+
 Means and standard deviations were derived for each of the resulting signals.
+
 Each variable is normalized and bounded within \[-1, 1\].
 
 ## Naming convention
@@ -45,6 +53,16 @@ Example: tBodyAcc-mean()-X signifies the mean of the time domain signal for the 
 
 To that are added 2 variables (subject number and type of activity) for a total of 68 variables in the final dataframe.
 
+Subject number is just a number from 1 to 30.
+
+Activity has 6 possible levels: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING and LAYING.
+
 # Details about the cleaning process
 
 The script first merges the training and test sets to create one big data set. All variables outside of the mean and standard deviation for each measurement are then discarded, as was requested.
+
+At the same time, variables in the data set are named according to the previously mentionned naming convention. These names are directly extracted from the "features.txt" file.
+
+Activities are then bound to the dataset as a factor variable, and their labels are extracted from "activity_labels.txt" before being applied to factor levels in the data set.
+
+From this data set, another independant data set is created that contains the mean of all observations for each variable, for each activity and each subject. This results in a dataframe with 6 lines per subject (1 per activity).
