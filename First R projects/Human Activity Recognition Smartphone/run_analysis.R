@@ -14,6 +14,8 @@ run_analysis<-function()
   ### And also extracts only the measurements on the mean and standard deviation for each measurement
   names(dataSet) <- get_names("features.txt")
   dataSet<-select(dataSet, contains("mean()"), contains("std()"))
+  names(dataSet)<-gsub("()","",names(dataSet),fixed=TRUE)
+  names(dataSet)<-gsub("-",".",names(dataSet),fixed=TRUE)
   
   ### Fetches activity data and labels, and includes them in the dataset
   YTest  <- readLines("test/Y_test.txt")
@@ -35,10 +37,7 @@ run_analysis<-function()
   dataPerSubject<-split(dataSet, dataSet$subjects)
   dataPerActivityPerSubject<-lapply(dataPerSubject, function(x){split(x, x$activity)})
   dataPerActivityPerSubjectMean<-lapply(dataPerActivityPerSubject, function(x){lapply(x, function(y) { colMeans(mutate(y, activity=as.numeric(activity)))})})
-  overallMeanSubjectActivity<-do.call(rbind, lapply(dataPerActivityPerSubjectMean, function(x){do.call(rbind, x)}))
-  tempNames<-colnames(overallMeanSubjectActivity)
-  overallMeanSubjectActivity<-data.frame(overallMeanSubjectActivity)
-  colnames(overallMeanSubjectActivity)<-tempNames
+  overallMeanSubjectActivity<-data.frame(do.call(rbind, lapply(dataPerActivityPerSubjectMean, function(x){do.call(rbind, x)})))
   rownames(overallMeanSubjectActivity)<-NULL
   overallMeanSubjectActivity[,"activity"]<-as.factor(overallMeanSubjectActivity[,"activity"])
   levels(overallMeanSubjectActivity[,"activity"])<-levels(Y)

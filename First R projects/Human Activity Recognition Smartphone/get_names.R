@@ -19,6 +19,5 @@ get_names<-function(path)
       }
     }
   }
-  
   names
 }
