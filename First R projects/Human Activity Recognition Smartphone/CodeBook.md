@@ -49,7 +49,7 @@ This results in 66 variables of interest. To summarize how variables are named:
 * statistic output: .mean or .std (respectively for mean or standard deviation)
 * suffix (when applicable): .X, .Y or .Z (one variable for each spatial dimension)
 
-Example: tBodyAcc-mean()-X signifies the mean of the time domain signal for the body acceleration signal on the X axis.
+Example: tBodyAcc.mean.X signifies the mean of the time domain signal for the body acceleration signal on the X axis.
 
 To that are added 2 variables (subject number and type of activity) for a total of 68 variables in the final dataframe.
 
@@ -61,7 +61,7 @@ Activity has 6 possible levels: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, S
 
 The script first merges the training and test sets to create one big data set. All variables outside of the mean and standard deviation for each measurement are then discarded, as was requested.
 
-At the same time, variables in the data set are named according to the previously mentionned naming convention. These names are directly extracted from the "features.txt" file.
+At the same time, variables in the data set are named according to the previously mentionned naming convention. These names are directly extracted from the "features.txt" file, and modified when necessary.
 
 Activities are then bound to the dataset as a factor variable, and their labels are extracted from "activity_labels.txt" before being applied to factor levels in the data set.
 
