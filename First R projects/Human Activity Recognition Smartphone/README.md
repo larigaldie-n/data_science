@@ -2,13 +2,13 @@
 
 The data cleaning is comprised of 3 scripts :
 
-*run_analysis.R
-This runs the main cleaning procedure. It takes no argument, and returns a dataset with the average of each variable for each activity and each subject (see the Code Book for more details).
+* run_analysis.R
+This runs the main cleaning procedure. It takes no argument, and returns a dataset with the average of each variable for each activity and each subject (see the Code Book for more details : CodeBook.md in this repo).
 
-*read_X_file.R
+* read_X_file.R
 This script is called by run_analysis(), and extracts data from X\*.txt files to create usable dataframes.
 
-*get_names.R
+* get_names.R
 This script is also called by run_analysis(), and extracts names from .txt files that contain key/names tuples (namely features.txt and activity_labels.txt) to create usable character vectors.
 
 ## Usage
