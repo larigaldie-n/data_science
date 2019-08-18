@@ -1,8 +1,6 @@
-﻿---
-title:  BeachBoys BikeShare predictive ML report
-author: Nathanael Larigaldie
-geometry: margin=1.5cm
----
+﻿### BeachBoys BikeShare predictive ML preliminary report
+
+### author: Nathanael Larigaldie
 
 BeachBoy BikeShare, a bike share service provider located in San Francisco Bay Area, has asked us to explore the possibility of a machine learning algorithm to predict the net rate of bike renting at any hour for any of their 70 stations around the Area. If succesful, this should allow them to plan in advance when and where to move bikes between stations to ensure a constant availability to users who want to get a bike at a given station, and an empty dock availability to users who went to give one back.
 
